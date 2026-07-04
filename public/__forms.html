@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form registration</title>
+  </head>
+  <body>
+    <!--
+      Static registration form so Netlify detects the estimate-lead form at
+      build time. The live React forms POST here. Field names must stay in
+      sync with components/QuoteForm.tsx.
+    -->
+    <form
+      name="estimate-lead"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="estimate-lead" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="address" />
+      <input type="text" name="service" />
+      <input type="text" name="property-type" />
+      <input type="text" name="budget" />
+      <input type="text" name="timeline" />
+      <textarea name="details"></textarea>
+      <input type="text" name="contact-preference" />
+      <input type="text" name="page" />
+    </form>
+  </body>
+</html>

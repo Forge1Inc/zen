@@ -1,26 +1,181 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Karesansui palette */
+  --color-pine: #2c3a2e;
+  --color-pine-deep: #222d24;
+  --color-ink: #23261f;
+  --color-sage: #84937a;
+  --color-sage-mist: #a9b59e;
+  --color-stone: #eaede6;
+  --color-mist: #f4f6f0;
+  --color-sand: #d8d2c4;
+  --color-water: #5b7280;
+  --color-alert: #9b3535;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-instrument), Inter, ui-sans-serif, system-ui,
+    sans-serif;
+
+  --shadow-lift: 0 24px 48px -28px rgb(35 38 31 / 0.28);
+  --shadow-card: 0 10px 30px -18px rgb(35 38 31 / 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Small uppercase label used for eyebrows, nav, and form labels */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Faint horizontal rake lines, used sparingly on dark bands */
+@utility bg-raked {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 9px,
+    rgb(216 210 196 / 0.07) 9px,
+    rgb(216 210 196 / 0.07) 10px
+  );
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-stone);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: rgb(132 147 122 / 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 3px;
+}
+
+/* Scroll reveal: hidden state applied by the Reveal client component only
+   after hydration, so content is never invisible without JavaScript. */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Orchestrated hero entrance */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-seq > * {
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-seq > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.hero-seq > *:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.hero-seq > *:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.hero-seq > *:nth-child(4) {
+  animation-delay: 0.55s;
+}
+.hero-seq > *:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+/* Mobile menu entrance */
+@keyframes menu-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-panel {
+  animation: menu-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-backdrop {
+  animation: fade-in 0.3s ease both;
+}
+
+.fade-item {
+  animation: fade-in 0.5s ease both;
+}
+
+/* Ensō draw-in on load */
+@keyframes enso-draw {
+  from {
+    stroke-dashoffset: 620;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.enso-draw {
+  stroke-dasharray: 620;
+  animation: enso-draw 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-init {
+    transform: none;
+  }
+
+  .reveal-in {
+    transform: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .hero-seq > * {
+    animation: none;
+  }
+
+  .enso-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
 }

@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AAA Zen Gardens & Home Services
 
-## Getting Started
+Marketing and lead generation site for AAA Zen Gardens & Home Services,
+serving the GTA and Southern Ontario. Built with Next.js (App Router),
+TypeScript, and Tailwind CSS. Hosted on Netlify.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. A `Makefile` with `dev`, `build`, and `lint`
+targets is included if you prefer `make`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local`. One variable matters:
 
-## Learn More
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Public base URL, used in metadata, sitemap, robots, and JSON-LD. Set to the production URL in Netlify. |
 
-To learn more about Next.js, take a look at the following resources:
+## Where things live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `lib/site.ts` holds the business constants (name, phone, email, Instagram,
+  service area, hours). Change contact details here and they update
+  everywhere.
+- `lib/content.ts` holds services, process steps, testimonials, towns, and
+  gallery items. Testimonials and towns are placeholders, marked with
+  comments. Edit them there.
+- `content/blog/*.md` are the blog posts. Frontmatter needs `title`, `date`
+  (YYYY-MM-DD, quoted), `category`, and `excerpt`. Drop a new `.md` file in
+  and it appears on the blog automatically at build.
+- `components/sections/` are the home page sections in page order.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Lead capture (Netlify Forms)
 
-## Deploy on Vercel
+Both the home page quote form and `/estimate` submit to a single Netlify
+form named `estimate-lead`. The static registration lives in
+`public/__forms.html`; keep its field names in sync with
+`components/QuoteForm.tsx` if you add fields.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Submissions appear in the Netlify dashboard under **Forms**. To get an email
+for each lead: Netlify dashboard, Forms, Form notifications, add an email
+notification pointing at the business inbox.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Note: submissions only work on the deployed Netlify site. In local dev the
+form shows the fallback with direct phone and email contact instead.
+
+## Swapping in real photos
+
+All photography is placeholder stock (Unsplash) and is labelled as sample
+imagery in the UI. To replace: edit the `src` values in `lib/content.ts`
+(gallery, before/after, hero). Local files in `public/images/` work too;
+use paths like `/images/project-1.jpg`.
+
+## Deploying
+
+The site deploys on Netlify from this repo (`netlify.toml` is set up, Node
+22, Next.js runtime). Push to `main` to trigger a deploy.
