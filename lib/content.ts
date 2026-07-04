@@ -208,15 +208,15 @@ export const GALLERY_ITEMS: {
   },
 ];
 
-/* Placeholder before and after pair, labelled as samples in the UI. */
+/* Client-supplied pair; both photos carry their own Before/After labels. */
 export const BEFORE_AFTER = {
   before: {
-    src: "https://images.unsplash.com/photo-1598228723793-52759bba239c?w=1600&q=80&auto=format&fit=crop",
-    alt: "Plain front yard with basic lawn and shrubs, before landscaping",
+    src: "/images/before.png",
+    alt: "Stone house with a patchy, dried-out front lawn and sparse plantings before landscaping",
   },
   after: {
-    src: "https://images.unsplash.com/photo-1600585153490-76fb20a32601?w=1600&q=80&auto=format&fit=crop",
-    alt: "Finished modern front landscape with manicured lawn at dusk",
+    src: "/images/after.png",
+    alt: "The same stone house after landscaping, with a lush green lawn, curved paver walkway, and layered flower beds",
   },
 };
 

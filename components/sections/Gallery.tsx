@@ -100,10 +100,6 @@ export default function Gallery() {
               before={BEFORE_AFTER.before}
               after={BEFORE_AFTER.after}
             />
-            <p className="mt-4 text-center text-xs text-ink/45">
-              Placeholder photos shown to demonstrate. Real before and after
-              pairs from our projects are coming soon.
-            </p>
           </Reveal>
         </div>
       </div>

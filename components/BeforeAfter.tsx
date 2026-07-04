@@ -21,7 +21,7 @@ export default function BeforeAfter({
 
   return (
     <div className="mx-auto max-w-4xl">
-      <div className="relative aspect-[16/10] select-none overflow-hidden rounded-2xl border border-sand/70 shadow-card">
+      <div className="relative aspect-video select-none overflow-hidden rounded-2xl border border-sand/70 shadow-card">
         <Image
           src={after.src}
           alt={after.alt}
@@ -41,13 +41,6 @@ export default function BeforeAfter({
             className="object-cover"
           />
         </div>
-
-        <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-ink/65 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-mist backdrop-blur-sm">
-          Before
-        </span>
-        <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-ink/65 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-mist backdrop-blur-sm">
-          After
-        </span>
 
         <div
           aria-hidden="true"
