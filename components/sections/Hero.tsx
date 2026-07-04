@@ -21,7 +21,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[42%_78%]"
+        className="object-cover"
       />
       <div
         className="absolute inset-0 bg-gradient-to-t from-pine-deep/90 via-ink/50 to-ink/25"

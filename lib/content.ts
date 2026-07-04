@@ -221,8 +221,8 @@ export const BEFORE_AFTER = {
 };
 
 export const HERO_IMAGE = {
-  src: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=2400&q=80&auto=format&fit=crop",
-  alt: "Stately home with a wraparound porch overlooking a deep green lawn and layered garden beds",
+  src: "/images/hero.jpg",
+  alt: "Stone estate at dusk with a lit paver walkway winding through hydrangeas, hostas, and a deep green lawn",
 };
 
 export const SERVICE_OPTIONS = [
