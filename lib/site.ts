@@ -13,7 +13,7 @@ export const SITE = {
   yearsInBusiness: 7,
   serviceArea: "GTA & Southern Ontario",
   hours: "Monday to Saturday, by appointment",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aaa-zen-gardens.netlify.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aaazen.ca",
 } as const;
 
 export const NAV = [

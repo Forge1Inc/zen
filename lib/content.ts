@@ -221,8 +221,8 @@ export const BEFORE_AFTER = {
 };
 
 export const HERO_IMAGE = {
-  src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400&q=80&auto=format&fit=crop",
-  alt: "Calm, designed backyard with a mature tree and clean lawn at dusk",
+  src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2400&q=80&auto=format&fit=crop",
+  alt: "Luxury modern home with warm wood details and a landscaped pool terrace at dusk",
 };
 
 export const SERVICE_OPTIONS = [

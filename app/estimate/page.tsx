@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2, Mail, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { InstagramGlyph } from "@/components/motifs";
@@ -76,7 +77,17 @@ export default function EstimatePage() {
             </ul>
 
             <div className="mt-10 rounded-2xl border border-sand/80 bg-mist p-6">
-              <p className="eyebrow text-ink/50">Reach us directly</p>
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/images/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={64}
+                  height={64}
+                  className="h-14 w-14 object-contain mix-blend-multiply"
+                />
+                <p className="eyebrow text-ink/50">Reach us directly</p>
+              </div>
               <div className="mt-4 space-y-3 text-[0.95rem]">
                 <a
                   href={SITE.phoneHref}

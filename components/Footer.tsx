@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
-import { InstagramGlyph, StackedStones } from "@/components/motifs";
+import { InstagramGlyph } from "@/components/motifs";
 import Year from "@/components/Year";
 
 export default function Footer() {
@@ -22,7 +23,15 @@ export default function Footer() {
             <p className="mt-2 max-w-xs text-sm italic leading-relaxed text-sage-mist">
               {SITE.tagline}
             </p>
-            <StackedStones className="mt-6 h-12 w-12 text-sage" />
+            <span className="mt-6 inline-flex rounded-2xl bg-mist p-2.5">
+              <Image
+                src="/images/logo.png"
+                alt={`${SITE.name} logo`}
+                width={88}
+                height={88}
+                className="h-20 w-20 object-contain"
+              />
+            </span>
           </div>
 
           <div>

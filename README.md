@@ -58,5 +58,11 @@ use paths like `/images/project-1.jpg`.
 
 ## Deploying
 
-The site deploys on Netlify from this repo (`netlify.toml` is set up, Node
-22, Next.js runtime). Push to `main` to trigger a deploy.
+The Netlify project is `aaa-zen-gardens` (team Forge 1), live at
+https://aaa-zen-gardens.netlify.app. `netlify.toml` pins the build (Node 22,
+Next.js runtime).
+
+To make every push to `main` deploy automatically, link the repo once in
+Netlify: Site configuration, Build & deploy, Link repository, pick
+`Forge1Inc/zen`. Until then, deploys are run manually (Netlify CLI
+`netlify deploy --build --prod`, or through the dashboard).
