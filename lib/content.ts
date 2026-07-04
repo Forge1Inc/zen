@@ -221,8 +221,8 @@ export const BEFORE_AFTER = {
 };
 
 export const HERO_IMAGE = {
-  src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2400&q=80&auto=format&fit=crop",
-  alt: "Luxury modern home with warm wood details and a landscaped pool terrace at dusk",
+  src: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=2400&q=80&auto=format&fit=crop",
+  alt: "Stately home with a wraparound porch overlooking a deep green lawn and layered garden beds",
 };
 
 export const SERVICE_OPTIONS = [
